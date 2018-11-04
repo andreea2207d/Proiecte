@@ -3,8 +3,6 @@
 
 void Rational::doCanonicalForm()
 {
-	// Divide both numbers with greatest common divisior
-
 	int smallest = _numerator < _denominator ? _numerator : _denominator;
 	int gcd = 1;
 
@@ -339,4 +337,64 @@ bool operator!=(const Rational & c1, int & c2)
 bool operator!=(int & c1, const Rational & c2)
 {
 	return operator==(c1, c2) == false;
+}
+
+bool operator>(const Rational & c1, const Rational & c2)
+{
+	return c1._numerator * c2._denominator > c2._numerator * c1._denominator;
+}
+
+bool operator>(const Rational & c1, int & c2)
+{
+	return c1._numerator > c2 * c1._denominator;
+}
+
+bool operator>(int & c1, const Rational & c2)
+{
+	return c1 * c2._denominator > c2._numerator;
+}
+
+bool operator>=(const Rational & c1, const Rational & c2)
+{
+	return operator>(c1, c2) || operator==(c1,c2);
+}
+
+bool operator>=(const Rational & c1, int & c2)
+{
+	return operator>(c1, c2) || operator==(c1, c2);
+}
+
+bool operator>=(int & c1, const Rational & c2)
+{
+	return operator>(c1, c2) || operator==(c1, c2);
+}
+
+bool operator<(const Rational & c1, const Rational & c2)
+{
+	return operator>=(c1, c2) == false;
+}
+
+bool operator<(const Rational & c1, int & c2)
+{
+	return operator>=(c1, c2) == false;
+}
+
+bool operator<(int & c1, const Rational & c2)
+{
+	return operator>=(c1, c2) == false;
+}
+
+bool operator<=(const Rational & c1, const Rational & c2)
+{
+	return operator>(c1, c2) == false;
+}
+
+bool operator<=(const Rational & c1, int & c2)
+{
+	return operator>(c1, c2) == false;
+}
+
+bool operator<=(int & c1, const Rational & c2)
+{
+	return operator>(c1, c2) == false;
 }
