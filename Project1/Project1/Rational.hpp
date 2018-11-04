@@ -3,7 +3,6 @@
 class Rational 
 {
 public:
-	void doCanonicalForm();
 	void setFraction(int num, int denom);
 	void setDenom(int denom);
 	void setNum(int num);
@@ -13,4 +12,5 @@ public:
 	Rational(const Rational &rat);
 private:
 	int _numerator, _denominator;
+	void doCanonicalForm();
 };
