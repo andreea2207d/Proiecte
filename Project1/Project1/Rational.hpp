@@ -46,6 +46,14 @@ public:
 
 	friend Rational operator^(const Rational& c1, int& c2);
 
+	friend bool operator==(const Rational& c1, const Rational& c2);
+	friend bool operator==(const Rational& c1, int& c2);
+	friend bool operator==(int& c1, const Rational& c2);
+
+	friend bool operator!=(const Rational& c1, const Rational& c2);
+	friend bool operator!=(const Rational& c1, int& c2);
+	friend bool operator!=(int& c1, const Rational& c2);
+
 private:
 	int _numerator, _denominator;	
 	void doCanonicalForm();
