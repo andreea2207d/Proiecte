@@ -18,6 +18,17 @@ void Rational::doCanonicalForm()
 	_denominator /= gcd;
 }
 
+string Rational::toString()
+{
+	string str;
+	str = to_string(_numerator);
+	if (_denominator != 0) {
+		str += "/" + to_string(_denominator);
+	}
+
+	return str;
+}
+
 void Rational::setFraction(int num, int denom)
 {
 	_denominator = denom;

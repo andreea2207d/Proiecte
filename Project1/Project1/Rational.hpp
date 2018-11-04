@@ -1,8 +1,11 @@
 #pragma once
+#include <string>
+using namespace std;
 
 class Rational 
 {
 public:
+	string toString();
 	void setFraction(int num, int denom);
 	void setDenom(int denom);
 	void setNum(int num);
