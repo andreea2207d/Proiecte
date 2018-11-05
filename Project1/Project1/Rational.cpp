@@ -1,5 +1,8 @@
 #include "Rational.hpp"
 #include <cmath>
+#include <iostream>
+
+using namespace std;
 
 void Rational::doCanonicalForm()
 {
@@ -397,4 +400,47 @@ bool operator<=(const Rational & c1, int & c2)
 bool operator<=(int & c1, const Rational & c2)
 {
 	return operator>(c1, c2) == false;
+}
+
+Rational::operator double() const
+{
+	return (double) _numerator / _denominator;
+}
+
+Rational::operator int() const
+{
+	return (int) floor(_numerator / _denominator);
+}
+
+Rational::operator string()
+{
+	return toString();
+}
+
+istream & operator>>(istream & input, Rational & r)
+{
+	string in;
+
+	input >> in;
+
+	int pos = in.find("/");
+
+	if (pos == -1) {
+		r._denominator = 1;
+		r._numerator = atoi(in.c_str());
+	}
+	else {
+		string n = in.substr(0, pos), d = in.substr(pos + 1, in.size());
+		r._numerator = atoi(n.c_str());
+		r._denominator = atoi(d.c_str());
+	}
+
+	return input;
+}
+
+ostream & operator<<(ostream & stream, Rational & r)
+{
+	cout << r.toString();
+
+	return stream;
 }

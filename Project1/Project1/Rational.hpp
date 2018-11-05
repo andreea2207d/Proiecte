@@ -6,13 +6,17 @@ class Rational
 {
 public:
 	string toString();
+
 	void setFraction(int num, int denom);
 	void setDenom(int denom);
 	void setNum(int num);
+
 	int getDenom();
 	int getNum();
+
 	Rational(int num = 0, int denom = 1);
 	Rational(const Rational &rat);
+
 	Rational& operator+=(const Rational& rhs);
 	Rational& operator+=(const int& rhs);
 
@@ -69,6 +73,14 @@ public:
 	friend bool operator<=(const Rational& c1, const Rational& c2);
 	friend bool operator<=(const Rational& c1, int& c2);
 	friend bool operator<=(int& c1, const Rational& c2);
+
+	operator double() const;
+	operator int() const;
+	operator string();
+
+	friend istream& operator>>(istream & input, Rational& r);
+	friend ostream& operator<<(ostream& stream, Rational& r);
+
 private:
 	int _numerator, _denominator;	
 	void doCanonicalForm();
