@@ -1,2 +1,0 @@
-# Proiecte
-POO
